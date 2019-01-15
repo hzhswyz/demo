@@ -25,4 +25,13 @@
           p:sqlSessionFactoryBeanName="sqlSessionFactory"
           p:basePackage="com.hzh.mapper"/>
 
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <bean class="com.hzh.interceptor.LocalResolverInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

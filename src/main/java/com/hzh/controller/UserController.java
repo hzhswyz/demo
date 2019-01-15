@@ -18,6 +18,6 @@ public class UserController {
     public String GetUserByID(@RequestParam("id") String id, ModelMap modelMap){
         User user = userService.GetUserByID(id);
         modelMap.put("user",user);
-        return "index.jsp";
+        return "home.jsp";
     }
 }
