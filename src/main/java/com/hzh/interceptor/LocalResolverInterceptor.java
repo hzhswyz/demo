@@ -33,7 +33,6 @@ public class LocalResolverInterceptor implements HandlerInterceptor {
             catch (Exception e){
                 logger.error("Current LocaleResolver can't set locale,please change LocaleResolver strategy");
             }
-
         }
         return true;
     }

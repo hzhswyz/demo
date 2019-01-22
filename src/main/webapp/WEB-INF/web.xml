@@ -22,12 +22,45 @@
             <param-value>true</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
     </servlet>
     <servlet>
         <servlet-name>asyncservlet</servlet-name>
         <servlet-class>com.hzh.servlte.Asyncservlet</servlet-class>
         <async-supported>true</async-supported>
     </servlet>
+    <servlet>
+        <servlet-name>DoDispatch</servlet-name>
+        <servlet-class>com.hzh.servlte.DoDispatch</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SyncTest</servlet-name>
+        <servlet-class>com.hzh.servlte.SyncTest</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SyncTest2</servlet-name>
+        <servlet-class>com.hzh.servlte.SyncTest2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChuckServlte</servlet-name>
+        <servlet-class>com.hzh.servlte.ChuckServlte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChuckServlte</servlet-name>
+        <url-pattern>/ChuckServlte</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SyncTest</servlet-name>
+        <url-pattern>/SyncTest</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SyncTest2</servlet-name>
+        <url-pattern>/SyncTest2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoDispatch</servlet-name>
+        <url-pattern>/DoDispatch</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>asyncservlet</servlet-name>
         <url-pattern>/asyncservlet</url-pattern>
