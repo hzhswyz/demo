@@ -1,4 +1,4 @@
-package com.hzh.interceptor;
+package com.hzh.web.interceptor;
 
 
 import org.apache.log4j.Logger;

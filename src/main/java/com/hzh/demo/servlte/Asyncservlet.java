@@ -1,7 +1,6 @@
-package com.hzh.servlte;
+package com.hzh.demo.servlte;
 
-import com.hzh.asynceventListener.BossListener;
-import org.springframework.http.HttpRequest;
+import com.hzh.web.asynceventListener.BossListener;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;

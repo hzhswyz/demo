@@ -1,6 +1,6 @@
-package com.hzh.mapper;
+package com.hzh.demo.mapper;
 
-import com.hzh.model.User;
+import com.hzh.demo.model.User;
 
 public interface UserDao {
     User GetUserByID(String id);

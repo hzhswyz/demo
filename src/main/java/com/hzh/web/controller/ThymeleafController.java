@@ -1,6 +1,6 @@
-package com.hzh.controller;
+package com.hzh.web.controller;
 
-import com.hzh.model.User;
+import com.hzh.demo.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;

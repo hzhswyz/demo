@@ -1,4 +1,4 @@
-package com.hzh.servlte;
+package com.hzh.demo.servlte;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class SyncTest extends HttpServlet {
+public class DoDispatch extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req,resp);
@@ -18,9 +18,8 @@ public class SyncTest extends HttpServlet {
         res.setContentType ("text/plain;charset=UTF-8");
         res.setHeader ("CacheControl","private");
         res. setHeader ("Pragma", "no-cache") ;
-        System.out.println("pppppp");
-        req.getRequestDispatcher("/SyncTest2").forward(req,res);
-        System.out.println("ffffff");
+        final PrintWriter writer = res. getWriter ();
+        writer.println("DoDispatchDoDispatchDoDispatch");
+        writer.flush() ;
     }
-
 }

@@ -1,7 +1,7 @@
-package com.hzh.controller;
+package com.hzh.web.controller;
 
-import com.hzh.model.User;
-import com.hzh.service.UserService;
+import com.hzh.demo.model.User;
+import com.hzh.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

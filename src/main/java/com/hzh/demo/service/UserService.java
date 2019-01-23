@@ -1,7 +1,7 @@
-package com.hzh.service;
+package com.hzh.demo.service;
 
-import com.hzh.mapper.UserDao;
-import com.hzh.model.User;
+import com.hzh.demo.mapper.UserDao;
+import com.hzh.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

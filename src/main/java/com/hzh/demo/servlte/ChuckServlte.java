@@ -1,4 +1,4 @@
-package com.hzh.servlte;
+package com.hzh.demo.servlte;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

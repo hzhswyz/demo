@@ -1,13 +1,11 @@
-package com.hzh.controller;
+package com.hzh.web.controller;
 
-import com.hzh.exception.NotFoundException;
-import com.hzh.model.User;
+import com.hzh.web.exception.NotFoundException;
+import com.hzh.demo.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
-import org.springframework.validation.support.BindingAwareModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import javax.validation.Valid;
 
