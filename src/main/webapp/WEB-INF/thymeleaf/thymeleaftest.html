@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{fff/fff}">hhh</a>
+
+<form method="post" th:object="${user}" action="/thymeleaf/test">
+Name:
+<input type="text" th:field="*{name}"/><br/>
+Password:
+<input type="text" th:field="*{password}"/><br/>
+</form>
+</body>
+</html>

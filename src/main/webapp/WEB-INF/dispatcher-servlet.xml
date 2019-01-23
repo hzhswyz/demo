@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.hzh"/>
@@ -29,8 +30,46 @@
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
 
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:order="2"
           p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver"
+          p:order="1"
+          p:templateEngine-ref="templateEngine"/>
+    <bean id="templateEngine" class="org.thymeleaf.TemplateEngine"
+          p:templateResolver-ref="contextTemplateResolver"/>
+    <bean id="contextTemplateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver"
+          p:suffix=".html" p:prefix="/WEB-INF/thymeleaf/">
+        <constructor-arg ref="servletContext"/>
+    </bean>
+
+    <!--ContentNegotiationManager-->
+    <bean id="contentNe" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
+          p:ignoreAcceptHeader="true"
+          p:favorPathExtension="false"
+          p:favorParameter="true"
+          p:parameterName="format"
+          p:defaultContentType="text/html">
+        <property name="mediaTypes">
+            <value>
+                html=text/html;charset=UTF-8
+                json=application/json;charset=UTF-8
+                xml=application/xml;charset=gbk
+            </value>
+        </property>
+    </bean>
+
+    <!--ContentNegotiating视图解析器-->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+          p:order="0">
+        <property name="contentNegotiationManager" ref="contentNe"/>
+        <property name="defaultViews">
+            <list>
+            </list>
+        </property>
+    </bean>
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -38,5 +77,7 @@
             <bean class="com.hzh.interceptor.LocalResolverInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+
 
 </beans>

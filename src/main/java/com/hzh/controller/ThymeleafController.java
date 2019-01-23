@@ -1,27 +1,26 @@
 package com.hzh.controller;
 
-import com.hzh.exception.NotFoundException;
 import com.hzh.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
-import org.springframework.validation.support.BindingAwareModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/thymeleaf")
+public class ThymeleafController {
 
-    @RequestMapping()
-    public String login(@Valid User user, Errors errors, ModelMap modelMap){
+    @RequestMapping("/test")
+    public String home(@Valid User user, Errors errors, ModelMap modelMap){
+
+        user.setName("111111111111");
+        user.setPassword("ssss11");
 
         if (errors.hasErrors()){
             modelMap.put("user",user);
-            throw new NotFoundException();
-            //return "login";
+            return "thymeleaftest";
         }
         else{
             return "success";
