@@ -17,15 +17,16 @@
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:order="2"
-          p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+          p:prefix="/WEB-INF/" p:suffix=".jsp" p:viewNames="jsp/*"/>
 
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver"
           p:order="1"
+          p:viewNames="thymeleaf/*"
           p:templateEngine-ref="templateEngine"/>
     <bean id="templateEngine" class="org.thymeleaf.TemplateEngine"
           p:templateResolver-ref="contextTemplateResolver"/>
     <bean id="contextTemplateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver"
-          p:suffix=".html" p:prefix="/WEB-INF/thymeleaf/">
+          p:suffix=".html" p:prefix="/WEB-INF/" >
         <constructor-arg ref="servletContext"/>
     </bean>
 

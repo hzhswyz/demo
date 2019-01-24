@@ -24,7 +24,7 @@ public class MainController {
     public ModelAndView index(){
         //DispatcherServlet
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
+        modelAndView.setViewName("jsp/home");
        /* Locale locale = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse().getLocale();
         ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME,Locale.ENGLISH);
         Locale locale1 = LocaleContextHolder.getLocale();
@@ -43,7 +43,7 @@ public class MainController {
 
     @RequestMapping("/name")
     public String name(@ModelAttribute("name") String name){
-        return "home";
+        return "jsp/home";
     }
 
 

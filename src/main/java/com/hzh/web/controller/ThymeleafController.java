@@ -20,11 +20,16 @@ public class ThymeleafController {
 
         if (errors.hasErrors()){
             modelMap.put("user",user);
-            return "thymeleaftest";
+            return "thymeleaf/thymeleaftest";
         }
         else{
             return "success";
         }
+    }
+
+    @RequestMapping("/post")
+    public String post(){
+        return "thymeleaf/thymeleafpost";
     }
 
 }
