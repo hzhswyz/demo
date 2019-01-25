@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private DataSource dataSource;
     @Override
@@ -31,6 +32,11 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().
                 loginPage("/login").
+             //and().
+               // httpBasic().realmName("/").
+             and().
+                logout().
+                logoutSuccessUrl("/").
              and().
                 authorizeRequests().
                 antMatchers("/thymeleaf/test").hasRole("admin").

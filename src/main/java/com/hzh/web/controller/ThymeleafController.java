@@ -27,9 +27,9 @@ public class ThymeleafController {
         }
     }
 
-    @RequestMapping("/post")
+    @RequestMapping(value = "/demo",produces = "text/html;charset=utf-8")
     public String post(){
-        return "thymeleaf/thymeleafpost";
+        return "thymeleaf/demo";
     }
 
 }

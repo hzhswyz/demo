@@ -19,16 +19,29 @@
           p:order="2"
           p:prefix="/WEB-INF/" p:suffix=".jsp" p:viewNames="jsp/*"/>
 
-    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver"
+
+
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
           p:order="1"
           p:viewNames="thymeleaf/*"
-          p:templateEngine-ref="templateEngine"/>
+          p:templateEngine-ref="templateEngine"
+          p:characterEncoding="utf-8"/>
+
     <bean id="templateEngine" class="org.thymeleaf.TemplateEngine"
-          p:templateResolver-ref="contextTemplateResolver"/>
+          p:templateResolver-ref="contextTemplateResolver" >
+        <property name="additionalDialects">
+            <set>
+                <bean id="dialect" class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect"/>
+            </set>
+        </property>
+    </bean>
+
     <bean id="contextTemplateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver"
-          p:suffix=".html" p:prefix="/WEB-INF/" >
+          p:suffix=".html" p:prefix="/WEB-INF/" p:characterEncoding="utf-8">
         <constructor-arg ref="servletContext"/>
     </bean>
+
+
 
     <!--ContentNegotiationManager-->
     <bean id="contentNe" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
