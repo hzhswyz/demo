@@ -39,9 +39,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 logoutSuccessUrl("/").
              and().
                 authorizeRequests().
-                antMatchers("/thymeleaf/test").hasRole("admin").
+                antMatchers("/thymeleaf/test").authenticated().
                 antMatchers(HttpMethod.POST, "/thymeleaf/post").authenticated().
-                anyRequest().anonymous().
                 anyRequest().permitAll();
     }
 
