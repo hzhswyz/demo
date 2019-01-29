@@ -25,5 +25,25 @@
           p:basePackage="com.hzh.demo.mapper"/>
 
 
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+          p:host="${Mail.Server}"
+          p:port="${Mail.Port}"
+          p:username="${Mail.Username}"
+          p:password="${Mail.Password}"
+          p:defaultEncoding="${default-encoding}"
+          p:protocol="${Mail.protocol}">
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${Mail.auth}</prop>
+                <prop key="mail.display.sendmail">${Mail.display.sendmail}</prop>
+                <prop key="mail.smtp.starttls.enable">${Mail.starttls.enable}</prop>
+                <prop key="mail.smtp.starttls.required">${Mail.starttls.required}</prop>
+                <prop key="mail.smtp.ssl.enable">${Mail.ssl.enable}</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
 
 </beans>

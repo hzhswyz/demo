@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.context.request.async.WebAsyncTask;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import java.util.concurrent.Callable;
 
@@ -18,7 +19,7 @@ public class AsyncController {
 
         ListenableFuture<ResponseEntity<String>> future = new AsyncRestTemplate().getForEntity(
             "https://www.baidu.com",String.class);
-
+       // RequestMappingHandlerAdapter
         return future;
     }
 

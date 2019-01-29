@@ -9,7 +9,6 @@
         <package name="com.hzh.demo.model"/>
     </typeAliases>
 
-
     <mappers>
        <package name="com.hzh.demo.mapper"/>
     </mappers>
