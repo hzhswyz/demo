@@ -5,7 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
-public class SSPasswordEncoder implements PasswordEncoder {
+public class RSAPasswordEncoder implements PasswordEncoder {
 
     @Override
     public String encode(CharSequence charSequence) {

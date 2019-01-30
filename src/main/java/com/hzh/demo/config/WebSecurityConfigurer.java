@@ -1,9 +1,10 @@
 package com.hzh.demo.config;
 
-import com.hzh.demo.encryption.SSPasswordEncoder;
+import com.hzh.demo.encryption.RSAPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -22,10 +23,12 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //auth.inMemoryAuthentication().withUser("user").password("12345").roles("user")
                // .and().withUser("admin").password("admin").roles("admin","user");
+        //UsernamePasswordAuthenticationFilter
+        //DaoAuthenticationProvider
         auth.jdbcAuthentication().dataSource(dataSource).
                 usersByUsernameQuery("select name,password,locking from user where name=?")
                 .authoritiesByUsernameQuery("select name,auth from user where name=?")
-                .passwordEncoder(new SSPasswordEncoder());
+                .passwordEncoder(new RSAPasswordEncoder());
     }
 
     @Override
@@ -41,6 +44,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 authorizeRequests().
                 antMatchers("/thymeleaf/test").authenticated().
                 antMatchers(HttpMethod.POST, "/thymeleaf/post").authenticated().
+                antMatchers("/register").authenticated().
                 anyRequest().permitAll();
     }
 

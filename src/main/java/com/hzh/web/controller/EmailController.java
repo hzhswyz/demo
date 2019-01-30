@@ -2,13 +2,14 @@ package com.hzh.web.controller;
 
 import com.hzh.demo.model.EmailModel;
 import com.hzh.demo.model.Rvi;
-import com.hzh.demo.model.User;
 import com.hzh.demo.service.EmailService;
 import com.hzh.demo.service.RviService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
+import org.springframework.security.web.session.SessionManagementFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class EmailController {
 
     @RequestMapping(value = "/email/send",method = RequestMethod.POST)
     public ResponseEntity<String> sendEmail(String to, @AuthenticationPrincipal Principal principal){
+        //SessionManagementFilter
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         EmailModel emailModel = new EmailModel();
         emailModel.setTo(to);
