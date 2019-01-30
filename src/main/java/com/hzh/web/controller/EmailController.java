@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.session.SessionManagementFilter;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,7 @@ public class EmailController {
     @RequestMapping(value = "/email/send",method = RequestMethod.POST)
     public ResponseEntity<String> sendEmail(String to, @AuthenticationPrincipal Principal principal){
         //SessionManagementFilter
+        //ExceptionTranslationFilter
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         EmailModel emailModel = new EmailModel();
         emailModel.setTo(to);
