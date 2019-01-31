@@ -43,7 +43,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
              and().
                 authorizeRequests().
                 antMatchers("/thymeleaf/test").authenticated().
-                antMatchers(HttpMethod.POST, "/thymeleaf/post").authenticated().
+                antMatchers(HttpMethod.POST, "/thymeleaf/post").hasRole("admin").
+                antMatchers("/thymeleaf/tt").authenticated().
                 antMatchers("/register").authenticated().
                 anyRequest().permitAll();
     }
