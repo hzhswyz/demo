@@ -3,6 +3,7 @@ package com.hzh.web.controller;
 import com.hzh.demo.model.User;
 import com.hzh.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ public class UserController {
 
     @RequestMapping("GetUserByID")
     public String GetUserByID(@RequestParam("id") String id, ModelMap modelMap){
+        //FilterSecurityInterceptor
         User user = userService.GetUserByID(id);
         modelMap.put("user",user);
         return "jsp/home";
